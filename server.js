@@ -2,6 +2,9 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+//Set port for heroku or default to 3000
+const port = process.env.PORT || 3000;
+
 var app = express();
 
 //Register Partials dir
@@ -56,6 +59,6 @@ app.get('/bad', ( req, res )=>{
 	res.send({errorMessage: 'Unable to process request'});
 });
 
-app.listen(3000, () => {
-	console.log('Server running on port 3000');
+app.listen(port, () => {
+	console.log(`Server running on port ${port}`);
 });
